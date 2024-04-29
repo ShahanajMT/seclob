@@ -1,6 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:seclob/core/colors/const_colors.dart';
+import 'package:seclob/core/constants/constants.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -10,132 +13,127 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
+            //! --------- mainContainer --------- !//
             Container(
               height: 250,
-              color: Colors.orange,
+              color: mainbackgroundColor,
               child: const Padding(
                 padding: EdgeInsets.only(top: 50, left: 10, right: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 20,
-                      child: Center(
-                        child: Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          size: 25,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'ShahanajShnau',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17),
-                    ),
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 20,
-                      child: Center(
-                        child: Icon(
-                          Icons.more_vert_outlined,
-                          size: 25,
-                        ),
-                      ),
-                    ),
+                    CircleAatharIconButton(
+                        backroudColor: kWhiteColor,
+                        icon: Icons.arrow_forward_ios,
+                        size: 25,
+                        radius: 20),
+                    TTextss(
+                        text: 'Rayan_Photographer_',
+                        size: 17,
+                        fontWeight: FontWeight.w400,
+                        textColor: kBlackColor),
+                    CircleAatharIconButton(
+                        backroudColor: kWhiteColor,
+                        icon: Icons.more_vert_outlined,
+                        size: 25,
+                        radius: 20),
                   ],
                 ),
               ),
             ),
+
+            //! ------------------- Close --------------------- !//
+
+            //! ------------ TCurvedContainer ---------------------- !//
+
             Padding(
               padding: const EdgeInsets.only(top: 200),
               child: Container(
                 height: 355,
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(60),
-                        topRight: Radius.circular(60))),
+                decoration: kCurvedBorderRadius,
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 80,
+                    kHeihgt80,
+
+                    //! --------- CurvedContainers Contents ---------------- !//
+                    const TTextss(
+                      text: 'Rayan Moon',
+                      textColor: kDarkBlueTextColor,
+                      fontWeight: FontWeight.bold,
+                      size: 20,
                     ),
-                    const Text('ShahanajShanu',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20)),
-                    Text('Flutter Developer',
+                    const TTextss(
+                      text: 'Photograher',
+                      textColor: klihtBlueTextColor,
+                      fontWeight: FontWeight.w300,
+                      size: 16,
+                    ),
+                    kHeight10,
+
+                    //? About -----
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        kAboutText,
+                        textAlign: TextAlign.center,
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Colors.grey.shade400,
                             fontSize: 16,
-                            fontWeight: FontWeight.w300)),
-                    const SizedBox(height: 10),
-                    Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Text(
-                            'Passionate and skilled Flutter developer with 1 years of experience in building cross-platform mobile applications. Adept at developing efficient, maintainable, and scalable code to meet project requirements. Seeking opportunities to contribute expertise in Flutter development to innovative projects.',
-                            textAlign: TextAlign.center,
-                            maxLines: 4,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: Colors.grey.shade400,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w300))),
-                    const SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                            fontWeight: FontWeight.w300),
+                      ),
+                    ),
+                    //? -----close
+
+                    kHeight20,
+
+                    //! ------------------ Container Button -------------------- !//
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
                         children: [
                           Expanded(
-                              child: Container(
-                            height: 50,
-                            width: 200,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.cyan),
-                            child: const Center(
-                              child: Text(
-                                'Verified',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          )),
-                          const SizedBox(width: 5),
+                            child: TContainerButton(
+                                height: 50,
+                                width: 200,
+                                text: 'Verified',
+                                radius: 10,
+                                backgroudColor: kContainer1ButtonColor,
+                                textColor: kWhiteColor),
+                          ),
+                          SizedBox(width: 5),
                           Expanded(
-                              child: Container(
-                            height: 50,
-                            width: 200,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.cyan),
-                            child: const Center(
-                              child: Text(
-                                'Verified',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ))
+                            child: TContainerButton(
+                                height: 50,
+                                width: 200,
+                                text: 'Wallet',
+                                radius: 10,
+                                backgroudColor: kContainer2ButtonColor,
+                                textColor: kWhiteColor),
+                          )
                         ],
                       ),
-                    )
+                    ),
+                    //! -------------------- close -------------------!//
                   ],
                 ),
               ),
             ),
+
+            //! ------ CurvedContainers Close ---------------- !//
+
             Padding(
               padding: const EdgeInsets.only(top: 530),
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
-                color: Colors.green,
+                color: backgroundColor,
                 child: Column(
                   children: [
+                    //! ----------- smallContainer --------- !//
                     Padding(
                       padding:
                           const EdgeInsets.only(left: 43, right: 43, top: 5),
@@ -144,9 +142,7 @@ class HomePage extends StatelessWidget {
                           Container(
                             height: 100,
                             width: 400,
-                            decoration: BoxDecoration(
-                                color: Colors.yellowAccent,
-                                borderRadius: BorderRadius.circular(10)),
+                            decoration: kBorderRadius10,
                             child: const Padding(
                               padding:
                                   EdgeInsets.only(left: 25, top: 30, right: 25),
@@ -156,75 +152,83 @@ class HomePage extends StatelessWidget {
                                 children: [
                                   TTexts(text1: '50', text2: 'Post'),
                                   TTexts(text1: '564', text2: 'Followers'),
-                                  TTexts(
-                                    text1: '564',
-                                    text2: 'Following',
-                                  ),
+                                  TTexts(text1: '564', text2: 'Following'),
                                 ],
                               ),
                             ),
                           ),
-                          const SizedBox(height: 15),
-                          Row(
+
+                          //! --------- smallContainer Close -------- !//
+                          kHeight20,
+                          const Row(
                             children: [
+                              //! ------------- ContainerButton --------------!//
                               Expanded(
-                                  child: Container(
-                                height: 50,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                    color: Colors.red,
-                                    borderRadius: BorderRadius.circular(10)),
-                              )),
-                              const SizedBox(width: 7),
+                                child: TContainerButton(
+                                    height: 50,
+                                    width: 200,
+                                    text: 'EditProfile',
+                                    radius: 10,
+                                    backgroudColor: kLightIndigoColor,
+                                    textColor: kWhiteColor),
+                              ),
+                              kWidth10,
                               Expanded(
-                                  child: Container(
-                                height: 50,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                    color: Colors.pink,
-                                    borderRadius: BorderRadius.circular(10)),
-                              )),
+                                  child: TContainerButton(
+                                      height: 50,
+                                      width: 200,
+                                      text: 'Contact',
+                                      radius: 10,
+                                      backgroudColor: kLightIndigoColor,
+                                      textColor: kWhiteColor)),
                             ],
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    kHeight10,
+
+                    //! ------------- ContainerButton  Close--------------!//
+
                     Container(
                       height: 50,
                       width: double.infinity,
-                      color: Colors.purple,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 80, right: 80),
+                      color: kWhiteColor,
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 80, right: 80),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            //! ------------- Container with verticalDivider --------------- !//
                             Text(
                               'Photos',
                               style: TextStyle(
-                                  color: Colors.blue.shade400,
+                                  color: kGreyColor,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w300),
                             ),
-                            const VerticalDivider(
-                                thickness: 2, color: Colors.yellow),
+                            VerticalDivider(thickness: 2, color: kGreyColor),
                             Text(
                               'Videos',
                               style: TextStyle(
-                                  color: Colors.blue.shade400,
+                                  color: kGreyColor,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w300),
-                            )
+                            ),
+                            //! ------------- Container with verticalDivider close --------------- !//
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    kHeight10,
+
+                    //! --------- Scrollable Conatiner ---------------!//
+
                     Container(
                       margin: const EdgeInsets.all(10),
                       width: 500,
                       height: 400,
-                      color: Colors.deepPurple,
+                      color: backgroundColor,
                       child: GridView.builder(
                         scrollDirection: Axis.vertical,
                         gridDelegate:
@@ -238,12 +242,24 @@ class HomePage extends StatelessWidget {
                           height: 100,
                           width: 200,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.red),
-                          margin: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
+                            borderRadius: BorderRadius.circular(10),
+                            //color: Colors.red,
+                            image: const DecorationImage(image: NetworkImage(kImage), fit: BoxFit.cover)
+                          ),
+                          margin: const EdgeInsets.only(
+                              left: 5, right: 5, top: 5, bottom: 5),
+                          child: const Row(
+                            children: [
+                              //Icon(Icons.favorite_outline_sharp, size: 18,)
+                              TIconsandText(icon: Icons.favorite_outline_sharp, text: '15.3K', size: 20),
+                              kHeight10,
+                              TIconsandText(icon: Icons.comment_outlined, text: '200', size: 20)
+                            ],
+                          ),
                         ),
                       ),
-                    )
+                    ),
+                    //! --------------------- Scrollable Container end ---------- !//
                   ],
                 ),
               ),
@@ -252,7 +268,8 @@ class HomePage extends StatelessWidget {
               top: 170,
               right: 190,
               child: CircleAvatar(
-                backgroundColor: Colors.black,
+                backgroundImage: NetworkImage(kProfileImage),
+                //backgroundColor: Colors.black,
                 radius: 50,
               ),
             ),
@@ -263,6 +280,140 @@ class HomePage extends StatelessWidget {
   }
 }
 
+//ToDo......................
+
+class TIconsandText extends StatelessWidget {
+  const TIconsandText({
+    Key? key,
+    required this.icon,
+    required this.text,
+    required this.size,
+  }) : super(key: key);
+
+  final IconData icon;
+  final String text;
+  final double size;
+  final Color iconColor = kWhiteColor;
+  final Color textColor = kWhiteColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 85, left: 20),
+      child: Column(
+        children: [
+          Icon(
+            icon,
+            size: size,
+            color: iconColor,
+          ),
+          Text(text, style: TextStyle(color: kWhiteColor),),
+        ],
+      ),
+    );
+  }
+}
+
+//! ------------ TContainerButton --------- !//
+
+class TContainerButton extends StatelessWidget {
+  const TContainerButton({
+    Key? key,
+    required this.height,
+    required this.width,
+    required this.text,
+    required this.radius,
+    required this.backgroudColor,
+    required this.textColor,
+  }) : super(key: key);
+
+  final double height;
+  final double width;
+  final String text;
+  final double radius;
+  final Color backgroudColor;
+  final Color textColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height,
+      width: width,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius), color: backgroudColor),
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(color: textColor),
+        ),
+      ),
+    );
+  }
+}
+
+//! ---------------- close --------------------- !//
+
+//! -------- CircleAvatharwith IconButton --------!//
+
+class CircleAatharIconButton extends StatelessWidget {
+  const CircleAatharIconButton({
+    Key? key,
+    required this.backroudColor,
+    required this.radius,
+    required this.icon,
+    required this.size,
+  }) : super(key: key);
+
+  final Color backroudColor;
+  final double radius;
+  final IconData icon;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      backgroundColor: backroudColor,
+      radius: radius,
+      child: Center(
+        child: Icon(
+          icon,
+          size: size,
+        ),
+      ),
+    );
+  }
+}
+
+//! --------------- close -------------------! //
+
+class TTextss extends StatelessWidget {
+  const TTextss({
+    Key? key,
+    required this.text,
+    required this.textColor,
+    required this.fontWeight,
+    required this.size,
+  }) : super(key: key);
+
+  final String text;
+  final Color textColor;
+  final FontWeight fontWeight;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: textColor,
+        fontWeight: fontWeight,
+        fontSize: size,
+      ),
+    );
+  }
+}
+
+//! ------------------------------- !//
 class TTexts extends StatelessWidget {
   const TTexts({
     Key? key,
@@ -278,8 +429,8 @@ class TTexts extends StatelessWidget {
     return Column(
       children: [
         Text(text1,
-            style: TextStyle(
-                color: Colors.blue.shade400,
+            style: const TextStyle(
+                color: ksmallConTextColor,
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
         Text(text2,
@@ -291,17 +442,3 @@ class TTexts extends StatelessWidget {
     );
   }
 }
-
-
-// class Cards extends StatelessWidget {
-//   const Cards({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: 100, 
-//       width: 100,
-//       color: Colors.cyanAccent,
-//     );
-//   }
-// }
