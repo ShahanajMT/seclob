@@ -4,6 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:seclob/core/colors/const_colors.dart';
 import 'package:seclob/core/constants/constants.dart';
 
+import 'widgets/TCircleAvatharButton.dart';
+import 'widgets/TContainerButton.dart';
+import 'widgets/TIconsandText.dart';
+import 'widgets/TTexts.dart';
+import 'widgets/TTextss.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -227,7 +233,8 @@ class HomePage extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.all(10),
                       width: 500,
-                      height: 400,
+                      height: MediaQuery.of(context).size.height * 0.67,
+                      
                       color: backgroundColor,
                       child: GridView.builder(
                         scrollDirection: Axis.vertical,
@@ -243,17 +250,17 @@ class HomePage extends StatelessWidget {
                           width: 200,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            //color: Colors.red,
+                            
                             image: const DecorationImage(image: NetworkImage(kImage), fit: BoxFit.cover)
                           ),
                           margin: const EdgeInsets.only(
                               left: 5, right: 5, top: 5, bottom: 5),
                           child: const Row(
                             children: [
-                              //Icon(Icons.favorite_outline_sharp, size: 18,)
+                              
                               TIconsandText(icon: Icons.favorite_outline_sharp, text: '15.3K', size: 20),
                               kHeight10,
-                              TIconsandText(icon: Icons.comment_outlined, text: '200', size: 20)
+                              TIconsandText(icon: Icons.comment_outlined, text: '200', size: 20),
                             ],
                           ),
                         ),
@@ -269,7 +276,6 @@ class HomePage extends StatelessWidget {
               right: 190,
               child: CircleAvatar(
                 backgroundImage: NetworkImage(kProfileImage),
-                //backgroundColor: Colors.black,
                 radius: 50,
               ),
             ),
@@ -280,165 +286,5 @@ class HomePage extends StatelessWidget {
   }
 }
 
-//ToDo......................
 
-class TIconsandText extends StatelessWidget {
-  const TIconsandText({
-    Key? key,
-    required this.icon,
-    required this.text,
-    required this.size,
-  }) : super(key: key);
 
-  final IconData icon;
-  final String text;
-  final double size;
-  final Color iconColor = kWhiteColor;
-  final Color textColor = kWhiteColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 85, left: 20),
-      child: Column(
-        children: [
-          Icon(
-            icon,
-            size: size,
-            color: iconColor,
-          ),
-          Text(text, style: TextStyle(color: kWhiteColor),),
-        ],
-      ),
-    );
-  }
-}
-
-//! ------------ TContainerButton --------- !//
-
-class TContainerButton extends StatelessWidget {
-  const TContainerButton({
-    Key? key,
-    required this.height,
-    required this.width,
-    required this.text,
-    required this.radius,
-    required this.backgroudColor,
-    required this.textColor,
-  }) : super(key: key);
-
-  final double height;
-  final double width;
-  final String text;
-  final double radius;
-  final Color backgroudColor;
-  final Color textColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(radius), color: backgroudColor),
-      child: Center(
-        child: Text(
-          text,
-          style: TextStyle(color: textColor),
-        ),
-      ),
-    );
-  }
-}
-
-//! ---------------- close --------------------- !//
-
-//! -------- CircleAvatharwith IconButton --------!//
-
-class CircleAatharIconButton extends StatelessWidget {
-  const CircleAatharIconButton({
-    Key? key,
-    required this.backroudColor,
-    required this.radius,
-    required this.icon,
-    required this.size,
-  }) : super(key: key);
-
-  final Color backroudColor;
-  final double radius;
-  final IconData icon;
-  final double size;
-
-  @override
-  Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundColor: backroudColor,
-      radius: radius,
-      child: Center(
-        child: Icon(
-          icon,
-          size: size,
-        ),
-      ),
-    );
-  }
-}
-
-//! --------------- close -------------------! //
-
-class TTextss extends StatelessWidget {
-  const TTextss({
-    Key? key,
-    required this.text,
-    required this.textColor,
-    required this.fontWeight,
-    required this.size,
-  }) : super(key: key);
-
-  final String text;
-  final Color textColor;
-  final FontWeight fontWeight;
-  final double size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-        color: textColor,
-        fontWeight: fontWeight,
-        fontSize: size,
-      ),
-    );
-  }
-}
-
-//! ------------------------------- !//
-class TTexts extends StatelessWidget {
-  const TTexts({
-    Key? key,
-    required this.text1,
-    required this.text2,
-  }) : super(key: key);
-
-  final String text1;
-  final String text2;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(text1,
-            style: const TextStyle(
-                color: ksmallConTextColor,
-                fontSize: 20,
-                fontWeight: FontWeight.bold)),
-        Text(text2,
-            style: TextStyle(
-                color: Colors.grey.shade300,
-                fontSize: 16,
-                fontWeight: FontWeight.w400)),
-      ],
-    );
-  }
-}
